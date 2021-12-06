@@ -21,11 +21,14 @@ def doorOpen(self):
       global state
       if(state == 0):
         GPIO.output(LEDPin, state)
+        
         state = 1
       elif (state == 1):
         GPIO.output(LEDPin, state)
         state = 0
       PIRreading = GPIO.input(PIRPin)
+      time.sleep(.5)
+    
   except KeyboardInterrupt:
     print("bye")
     
