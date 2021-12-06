@@ -13,10 +13,11 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 def doorOpen(self):
-  servo.start(dcMin)
+  
   print('servo started')
   
   try:
+    servo.start(dcMin)
     print('in try statement')  
     servo.ChangeDutyCycle(dcMax)
     time.sleep(1)
