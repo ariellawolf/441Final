@@ -15,16 +15,15 @@ servo= GPIO.PWM(servoPin, 50) #50 Hz
 def doorOpen(self):
   servo.start(0)
   print('servo started')
-  PIRreading = GPIO.input(PIRPin)
+  
   try:
-    while(PIRreading>0):
-    
-      servo.ChangeDutyCycle(dcMax)
-      time.sleep(1)
+       
+    servo.ChangeDutyCycle(dcMax)
+    time.sleep(1)
      
-      servo.ChangeDutyCycle(dcMin)
-      time.sleep(1)
-      PIRreading = GPIO.input(PIRPin)
+    servo.ChangeDutyCycle(dcMin)
+    time.sleep(1)
+    
      
     servo.stop()
   except KeyboardInterrupt:
