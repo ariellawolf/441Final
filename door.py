@@ -20,10 +20,10 @@ def doorOpen(self):
     while(PIRreading>0):
     
       servo.ChangeDutyCycle(dcMax)
-      time.sleep(.5)
+      time.sleep(1)
      
       servo.ChangeDutyCycle(dcMin)
-      time.sleep(.5)
+      time.sleep(1)
       PIRreading = GPIO.input(PIRPin)
      
     servo.stop()
