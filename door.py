@@ -25,7 +25,8 @@ def doorOpen():
     print("bye")
     servo.stop()
   GPIO.cleanup()
-while(True):
-  print('in this while statement')
-  GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen)
 
+GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen)
+
+while(True):
+  print('waiting for edge detection')
