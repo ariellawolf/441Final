@@ -16,7 +16,7 @@ def doorOpen():
   servo.start(0)
   print('servo started')
   try:
-    while True: #**** changed this to only do one rotation timing wise 
+    while(True): #**** changed this to only do one rotation timing wise 
       for dc in range(dcMin,dcMax):
         servo.ChangeDutyCycle(dc)
         print(dc)
@@ -25,5 +25,7 @@ def doorOpen():
     print("bye")
     servo.stop()
   GPIO.cleanup()
+while(True):
+  print('in this while statement')
+  GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen)
 
-GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen)
