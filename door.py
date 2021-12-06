@@ -17,7 +17,7 @@ def doorOpen(self):
   print('servo started')
   
   try:
-       
+     print('in try statement')  
     servo.ChangeDutyCycle(dcMax)
     time.sleep(1)
      
