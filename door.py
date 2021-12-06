@@ -14,6 +14,7 @@ servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 def doorOpen():
   servo.start(0)
+  print('servo started')
   try:
     while True: #**** changed this to only do one rotation timing wise 
       for dc in range(dcMin,dcMax):
