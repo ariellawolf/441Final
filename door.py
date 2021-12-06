@@ -26,8 +26,6 @@ def doorOpen(self):
     servo.ChangeDutyCycle(dcMin)
     time.sleep(1)
     
-     
-    servo.stop()
   except KeyboardInterrupt:
     print("bye")
     servo.stop()
