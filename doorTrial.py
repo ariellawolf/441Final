@@ -15,18 +15,18 @@ def doorOpen(self):
   try:
     while(PIRreading>0): #**** changed this to only do one rotation timing wise 
       GPIO.output(LEDPin, 1)
-      time.sleep(.5)
+      time.sleep(.05)
       GPIO.output(LEDPin, 0)
-      time.sleep(.5)
+      time.sleep(.05)
       PIRreading = GPIO.input(PIRPin)
   except KeyboardInterrupt:
     print("bye")
     
   
 
-GPIO.add_event_detect(PIRPin, GPIO.BOTH, callback= doorOpen, bouncetime=100)
+GPIO.add_event_detect(PIRPin, GPIO.FALLING, callback= doorOpen, bouncetime=100)
 
 while(True):
   PIRreading = GPIO.input(PIRPin)
   print('waiting for edge detection, PIR Reading is: ', PIRreading)
-  time.sleep(.5)
+  time.sleep(.1)
