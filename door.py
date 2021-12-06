@@ -26,6 +26,7 @@ def doorOpen(self):
       time.sleep(.5)
       servo.ChangeDutyCycle(dcMin)
       time.sleep(.5)
+      PIRreading = GPIO.input(PIRPin)
      
     servo.stop()
   except KeyboardInterrupt:
