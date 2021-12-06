@@ -19,7 +19,7 @@ def doorOpen(self):
   except KeyboardInterrupt:
     print("bye")
     
-  GPIO.cleanup()
+  
 
 GPIO.add_event_detect(PIRPin, GPIO.BOTH, callback= doorOpen, bouncetime=100)
 
