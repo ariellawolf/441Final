@@ -8,7 +8,7 @@ PIRPin= 5 #change this as needed- this connects to alarm pin (low if something i
 servoPin= 13 #change this as needed
 GPIO.setup(PIRPin, GPIO.IN,pull_up_down= GPIO.PUD_DOWN)
 GPIO.setup(servoPin, GPIO.OUT)
-dcMin = 3 #this may need to be changed
+dcMin = 2 #this may need to be changed
 dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
