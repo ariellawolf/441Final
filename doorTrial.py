@@ -15,6 +15,9 @@ def doorOpen(self):
   try:
     while(PIRreading>0): #**** changed this to only do one rotation timing wise 
       GPIO.output(LEDPin, 1)
+      time.sleep(.5)
+      GPIO.output(LEDPin, 0)
+      time.sleep(.5)
       PIRreading = GPIO.input(PIRPin)
   except KeyboardInterrupt:
     print("bye")
