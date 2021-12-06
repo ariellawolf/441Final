@@ -5,7 +5,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 PIRPin= 5 #change this as needed- this connects to alarm pin (low if something is detected)
-LEDpin= 13 #change this as needed
+LEDPin= 13 #change this as needed
 GPIO.setup(PIRPin, GPIO.IN,pull_up_down= GPIO.PUD_DOWN)
 GPIO.setup(LEDPin, GPIO.OUT)
 
@@ -14,7 +14,7 @@ def doorOpen(self):
   PIRreading = GPIO.input(PIRPin)
   try:
     while(PIRreading>0): #**** changed this to only do one rotation timing wise 
-      GPIO.output(LEDpin, HIGH)
+      GPIO.output(LEDPin, HIGH)
       PIRreading = GPIO.input(PIRPin)
   except KeyboardInterrupt:
     print("bye")
