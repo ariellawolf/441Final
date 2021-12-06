@@ -6,7 +6,7 @@ GPIO.setmode(GPIO.BCM)
 
 PIRPin= 5 #change this as needed- this connects to alarm pin (low if something is detected)
 servoPin= 13 #change this as needed
-GPIO.setup(PIRPin, GPIO.IN,pull_up_down= GPIO.PUD_UP)
+GPIO.setup(PIRPin, GPIO.IN,pull_up_down= GPIO.PUD_DOWN)
 GPIO.setup(servoPin, GPIO.OUT)
 dcMin = 3 #this may need to be changed
 dcMax = 12 #this may need to be changed
@@ -26,7 +26,7 @@ def doorOpen():
     servo.stop()
   GPIO.cleanup()
 
-GPIO.add_event_detect(PIRPin, GPIO.FALLING, callback= doorOpen, bouncetime=100)
+GPIO.add_event_detect(PIRPin, GPIO.RISIING, callback= doorOpen, bouncetime=100)
 
 while(True):
   PIRreading = GPIO.input(PIRPin)
