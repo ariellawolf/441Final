@@ -24,7 +24,7 @@ def doorOpen(self):
       time.sleep(.5)
       servo.ChangeDutyCycle(dcMax-1)
       time.sleep(.5)
-      servo.ChangeDutyCycl(dcMin)
+      servo.ChangeDutyCycle(dcMin)
       time.sleep(.5)
      
     servo.stop()
