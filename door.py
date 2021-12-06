@@ -17,7 +17,7 @@ def doorOpen(self):
   print('servo started')
   PIRreading = GPIO.input(PIRPin)
   try:
-    while((PIRreading>0): #**** changed this to only do one rotation timing wise 
+    while(PIRreading>0):
       for dc in range(dcMin,dcMax):
         servo.ChangeDutyCycle(dc)
         print(dc)
