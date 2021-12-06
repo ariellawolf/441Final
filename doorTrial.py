@@ -10,7 +10,7 @@ GPIO.setup(PIRPin, GPIO.IN,pull_up_down= GPIO.PUD_DOWN)
 GPIO.setup(LEDPin, GPIO.OUT)
 state = 0
 
-def doorOpen(self):
+def doorOpen(self, state):
   print('led will turn on')
   PIRreading = GPIO.input(PIRPin)
   
