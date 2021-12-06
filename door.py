@@ -26,7 +26,7 @@ def doorOpen(self):
     servo.stop()
   GPIO.cleanup()
 
-GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+GPIO.add_event_detect(PIRPin, GPIO.BOTH, callback= doorOpen, bouncetime=100)
 
 while(True):
   PIRreading = GPIO.input(PIRPin)
