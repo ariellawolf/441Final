@@ -29,4 +29,6 @@ def doorOpen():
 GPIO.add_event_detect(PIRPin, GPIO.FALLING, callback= doorOpen, bouncetime=100)
 
 while(True):
-  print('waiting for edge detection')
+  PIRreading = GPIO.input(PIRPin)
+  print('waiting for edge detection, PIR Reading is: ', PIRreading)
+  time.sleep(.5)
