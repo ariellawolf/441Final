@@ -18,16 +18,15 @@ def doorOpen(self):
   PIRreading = GPIO.input(PIRPin)
   try:
     while(PIRreading>0):
-      for dc in range(dcMin,dcMax+1):
-        servo.ChangeDutyCycle(dc)
-        print(dc)
-        time.sleep(0.5)
-        PIRreading = GPIO.input(PIRPin)
-      for dc in range(dcMin,dcMax+1):
-        servo.ChangeDutyCycle(dcMax-dc)
-        print(dcMax-dc)
-        time.sleep(0.5)
-        PIRreading = GPIO.input(PIRPin) 
+      servo.ChangeDutyCycle(dcMax-1)
+      time.sleep(.5)
+      servo.ChangeDutyCycle(dcMax)
+      time.sleep(.5)
+      servo.ChangeDutyCycle(dcMax-1)
+      time.sleep(.5)
+      servo.ChangeDutyCycl(dcMin)
+      time.sleep(.5)
+     
     servo.stop()
   except KeyboardInterrupt:
     print("bye")
