@@ -35,7 +35,7 @@ def doorOpen(self):
     
   
 
-GPIO.add_event_detect(PIRPin, GPIO.FALLING, callback= doorOpen, bouncetime=100)
+GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
 while(True):
   PIRreading = GPIO.input(PIRPin)
