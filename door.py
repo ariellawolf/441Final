@@ -12,7 +12,7 @@ dcMin = 3 #this may need to be changed
 dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
-def doorOpen():
+def doorOpen(self):
   servo.start(0)
   print('servo started')
   try:
