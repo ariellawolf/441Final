@@ -33,7 +33,7 @@ stepperThread = threading.Thread(target= stepper)
 
 stepperThread.start() #continuously looping through stepper code
 while(True):
-  photoresistorValue= 
+  
 
 
 
