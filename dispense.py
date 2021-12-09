@@ -37,6 +37,7 @@ def stepper():
 
 
 stepperThread = threading.Thread(target= stepper)
+stepperThread.daemon= True # force to end when main code terminates
 photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
 if (photoResVal> ambientVal):
