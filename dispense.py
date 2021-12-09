@@ -31,7 +31,7 @@ def stepper():
         stepperTry.contRotate()
       else:
         print('in while loop, not rotating')
-        time.sleep(1)
+        time.sleep(5)
 
   except Exception as e:
     print(e)
@@ -51,7 +51,7 @@ while(cond==True):
   elif (photoResVal>= ambientVal):
     print('end motor')
     time.sleep(1)
-    
+    cond=False #remove this for repetative turning
 
   
 
