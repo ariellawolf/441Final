@@ -25,7 +25,7 @@ ccw = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
 
 def stepper():
   try:
-    while(True):
+    while(photoResVal> ambientVal):
       print('in while loop')
       for state in range(8):
         for pin in range(4):
