@@ -49,7 +49,7 @@ while(cond==True):
     print('the first cond is true: ', photoResVal)
   elif (photoResVal>= ambientVal):
     print('end motor')
-    cond=False
+    
 
   
 
