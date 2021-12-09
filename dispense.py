@@ -1,7 +1,6 @@
 import RPi.GPIO as GPIO
-import time
 import threading
-import smbus
+from classes import Stepper
 from classes import ADC
 
 GPIO.setmode(GPIO.BCM)
@@ -11,26 +10,23 @@ ambientVal= 100 #change depending on room lighting
 address= 0x48 #find device address
 
 
-myADC= ADC(address)
-GPIO.setup(photoResistor, GPIO.IN)
-stepperPins = [12,16,20,21] # controller inputs: in1, in2, in3, in4
-sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
-        [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
+GPIO.setmode(GPIO.BCM)
+
+stepperPins = [19,26,17,27] # controller inputs: in1, in2, in3, in4
+
 for pin in stepperPins:
   GPIO.setup(pin, GPIO.OUT, initial=0)
 
-ccw = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
-[0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
+GPIO.setup(photoResistor, GPIO.IN)
 
+stepperTry= Stepper(180,0)
+myADC= ADC(address)
 
 def stepper():
   try:
     while(photoResVal< ambientVal):
       print('in while loop')
-      for state in range(8):
-        for pin in range(4):
-          GPIO.output(stepperPins[pin], sequence[state][pin])
-      time.delay(1)
+      stepperTry.contRotate()
   except Exception as e:
     print(e)
     
