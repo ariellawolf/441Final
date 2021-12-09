@@ -16,6 +16,6 @@ while(True):
     photoResVal=myADC.read(0) #0 channel
     print('the first cond is true')
     print('the photo res is at: ', photoResVal)
-  elif (photoResVal< ambientVal):
+  elif (photoResVal<= ambientVal):
     photoResVal=myADC.read(0) #0 channel
     print('the second cond it true: ', photoResVal)
