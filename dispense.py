@@ -11,9 +11,9 @@ ambientVal= 100 #change depending on room lighting
 address= 0x48 #find device address
 
 
-print(photoResVal)
+print('initi pr val: ', photoResVal)
 GPIO.setup(photoResistor, GPIO.IN)
-stepperPins = [18,21,22,23] # controller inputs: in1, in2, in3, in4
+stepperPins = [12,16,20,21] # controller inputs: in1, in2, in3, in4
 sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
         [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
 for pin in stepperPins:
