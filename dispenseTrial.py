@@ -20,5 +20,4 @@ while(True):
     print('the first cond is true')
     print('the photo res is at: ', photoResVal)
   elif (photoResVal< ambientVal):
-    stepperThread.end()
     print('the second cond it true')
