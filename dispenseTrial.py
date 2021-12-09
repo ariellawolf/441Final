@@ -17,4 +17,4 @@ while(True):
     print('the first cond is true')
     print('the photo res is at: ', photoResVal)
   elif (photoResVal< ambientVal):
-    print('the second cond it true')
+    print('the second cond it true: ', photoResVal)
