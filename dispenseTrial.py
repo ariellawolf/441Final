@@ -1,7 +1,4 @@
-import RPi.GPIO as GPIO
-import time
-import threading
-import smbus
+
 from classes import ADC
 
 
