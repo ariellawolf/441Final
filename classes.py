@@ -91,6 +91,6 @@ class Stepper:
   def contRotate(self):
     for step in range(8):
       self.halfstep()
-    time.sleep(1)
+    
   
 

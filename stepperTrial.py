@@ -14,6 +14,6 @@ stepperTry= Stepper(180,0)
 try:
     while(True):
       print('in while loop')
-      stepperTry.goAngle()
+      stepperTry.contRotate()
 except Exception as e:
   print(e)
