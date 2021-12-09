@@ -11,7 +11,7 @@ address= 0x48 #find device address
 
 
 GPIO.setup(photoResistor, GPIO.IN)
-stepperPins = [12,16,20,21] # controller inputs: in1, in2, in3, in4
+stepperPins = [23,24,16,20] # controller inputs: in1, in2, in3, in4
 sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
         [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
 for pin in stepperPins:
