@@ -47,8 +47,10 @@ while(cond==True):
   photoResVal=myADC.read(0) #0 channel
   if (photoResVal< ambientVal):
     print('the first cond is true: ', photoResVal)
+    time.sleep(1)
   elif (photoResVal>= ambientVal):
     print('end motor')
+    time.sleep(1)
     
 
   
