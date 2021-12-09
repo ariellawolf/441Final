@@ -24,6 +24,7 @@ try:
       for state in range(8):
         for pin in range(4):
           GPIO.output(stepperPins[pin], sequence[state][pin])
+          print('rotating')
         delay_us(1000)
       time.sleep(1)
 except Exception as e:
