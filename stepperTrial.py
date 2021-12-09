@@ -29,5 +29,5 @@ try:
         for pin in range(4):
           GPIO.output(stepperPins[pin], sequence[state][pin])
       time.delay(1)
-  except Exception as e:
-    print(e)
+except Exception as e:
+  print(e)
