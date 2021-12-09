@@ -6,7 +6,12 @@ from classes import ADC
 
 GPIO.setmode(GPIO.BCM)
 
-photoResistor= 6 #change as needed
+photoResistor= 0 #change as needed
+ambientVal= 100 #change depending on room lighting
+address= 0x48 #find device address
+
+
+print(photoResVal)
 GPIO.setup(photoResistor, GPIO.IN)
 stepperPins = [18,21,22,23] # controller inputs: in1, in2, in3, in4
 sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
@@ -20,6 +25,7 @@ ccw = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
 def stepper():
   try:
     while(True):
+      print('in while loop')
       for state in range(8):
         for pin in range(4):
           GPIO.output(stepperPins[pin], sequence[state][pin])
@@ -30,9 +36,14 @@ def stepper():
 
 
 stepperThread = threading.Thread(target= stepper)
-
+photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
-while(True):
+if (photoResVal> ambientVal):
+  photoResVal=myADC.read(0) #0 channel
+  print('the first cond is true')
+elif (photoResVal< ambientVal):
+  stepperThread.end()
+
   
 
 

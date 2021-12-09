@@ -4,7 +4,7 @@ import threading
 import smbus
 from classes import ADC
 
-GPIO.setmode(GPIO.BCM)
+
 
 photoResistor= 0 #change as needed
 
