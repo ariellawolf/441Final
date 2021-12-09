@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import threading
 from classes import Stepper
 from classes import ADC
+import time
 
 GPIO.setmode(GPIO.BCM)
 
@@ -24,9 +25,14 @@ myADC= ADC(address)
 
 def stepper():
   try:
-    while(photoResVal< ambientVal):
-      print('in while loop')
-      stepperTry.contRotate()
+    while(True):
+      if(photoResVal< ambientVal):
+        print('in while loop')
+        stepperTry.contRotate()
+      else:
+        print('in while loop, not rotating')
+        time.sleep(1)
+
   except Exception as e:
     print(e)
     
@@ -38,12 +44,12 @@ photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
 cond= True
 while(cond==True):
+  photoResVal=myADC.read(0) #0 channel
   if (photoResVal< ambientVal):
-    photoResVal=myADC.read(0) #0 channel
     print('the first cond is true: ', photoResVal)
   elif (photoResVal>= ambientVal):
     print('end motor')
-    cond==False
+    cond=False
 
   
 
