@@ -40,12 +40,14 @@ stepperThread = threading.Thread(target= stepper)
 stepperThread.daemon= True # force to end when main code terminates
 photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
-while(True):
+cond= True
+while(cond==True):
   if (photoResVal< ambientVal):
     photoResVal=myADC.read(0) #0 channel
     print('the first cond is true: ', photoResVal)
   elif (photoResVal>= ambientVal):
     print('end motor')
+    cond==False
 
   
 
