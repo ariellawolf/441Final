@@ -11,7 +11,7 @@ ambientVal= 100 #change depending on room lighting
 address= 0x48 #find device address
 
 
-print('initi pr val: ', photoResVal)
+myADC= ADC(address)
 GPIO.setup(photoResistor, GPIO.IN)
 stepperPins = [12,16,20,21] # controller inputs: in1, in2, in3, in4
 sequence = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
@@ -21,6 +21,7 @@ for pin in stepperPins:
 
 ccw = [ [1,0,0,0],[1,1,0,0],[0,1,0,0],[0,1,1,0],
 [0,0,1,0],[0,0,1,1],[0,0,0,1],[1,0,0,1] ]
+
 
 def stepper():
   try:
@@ -40,7 +41,7 @@ photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
 if (photoResVal> ambientVal):
   photoResVal=myADC.read(0) #0 channel
-  print('the first cond is true')
+  print('the first cond is true: ', photoResVal)
 elif (photoResVal< ambientVal):
   stepperThread.end()
 
