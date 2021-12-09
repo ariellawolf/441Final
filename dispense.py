@@ -44,7 +44,7 @@ if (photoResVal> ambientVal):
   photoResVal=myADC.read(0) #0 channel
   print('the first cond is true: ', photoResVal)
 elif (photoResVal< ambientVal):
-  stepperThread.end()
+  print('end motor')
 
   
 
