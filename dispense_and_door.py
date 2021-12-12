@@ -30,38 +30,34 @@ for pin in stepperPins:
 stepperTry= Stepper(180,0)
 myADC= ADC(address)
 
-
+def stepper():
+  try:
+    cond2=True
+    while(cond2==True):
+      if (photoResVal< ambientVal):
+        cond2=True
+        print('in while loop')
+        stepperTry.contRotate()
+      else:
+        cond2=False
+        print('above ambient value')
+  except Exception as e:
+    print(e)
+    
 def doorOpen(self):
-  
   print('servo started')
-  
   try:
     servo.start(dcMin)
     print('in try statement')  
     servo.ChangeDutyCycle(dcMax)
     time.sleep(3)
     servo.ChangeDutyCycle(dcMin)
-    time.sleep(.5)
-    
+    time.sleep(.5)  
   except KeyboardInterrupt:
     print("bye")
     servo.stop()
-  
-def stepper():
-  try:
-    while(True):
-      if(photoResVal< ambientVal):
-        print('in while loop')
-        stepperTry.contRotate()
-      else:
-        print('in while loop, not rotating')
-        time.sleep(5)
+    
 
-  except Exception as e:
-    print(e)
-    
-    
-GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
 
 stepperThread = threading.Thread(target= stepper)
@@ -70,10 +66,9 @@ photoResVal=myADC.read(0) #0 channel
 stepperThread.start() #continuously looping through stepper code
 cond= True
 
+#Stepper Motor & Photoresistor Execution Code 
 while(cond==True):
   photoResVal=myADC.read(0) #0 channel
-  PIRreading = GPIO.input(PIRPin)
-  print('pir value is: ', PIRreading)
   time.sleep(.1)
   if (photoResVal< ambientVal):
     print('the first cond is true: ', photoResVal)
@@ -82,3 +77,11 @@ while(cond==True):
     print('end motor')
     time.sleep(1)
     cond=False #remove this for repetative turning
+    
+
+#Servo Motor & PIR Sensor Code
+while(True):
+  PIRreading = GPIO.input(PIRPin)
+  print('pir value is: ', PIRreading)
+  GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+  time.sleep(1)
