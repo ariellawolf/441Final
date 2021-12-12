@@ -16,7 +16,7 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 
-ambientVal= 95 #change depending on room lighting
+ambientVal= 100 #change depending on room lighting
 address= 0x48 #find device address
 
 
@@ -93,7 +93,7 @@ while (cond4==True):
         print('pir value is: ', PIRreading)
         time.sleep(.01)
         if (PIRreading==1):
-          time.sleep(50)
+          time.sleep(5)
           cond3= False
           cond4= False
       while(True):
