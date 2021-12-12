@@ -62,7 +62,7 @@ with open('/usr/lib/cgi-bin/vending.txt','r') as f:
   productRead= json.load(f)
   productSelected= productRead["option"]
 while(True):  
-  if (productSelected=="hersheys"):
+  if (productSelected=="reeses"):
     stepperThread = threading.Thread(target= stepper)
     stepperThread.daemon= True # force to end when main code terminates
     photoResVal=myADC.read(0) #0 channel
