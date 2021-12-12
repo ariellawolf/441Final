@@ -89,4 +89,4 @@ if (productSelected=="hersheys"):
     print('pir value is: ', PIRreading)
     time.sleep(.01)
 else:
-  print('not working or other product selected')
+  print('product selected is: ', productSelected)
