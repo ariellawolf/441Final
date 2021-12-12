@@ -54,7 +54,8 @@ def doorOpen(self):
     servo.stop()
 
 GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
-cond = True
+
+cond=True
 
 while True:
   try:
@@ -69,7 +70,6 @@ while True:
       stepperThread.daemon= True # force to end when main code terminates
       photoResVal=myADC.read(0) #0 channel
       stepperThread.start() #continuously looping through stepper code
-      global cond
 
       #Stepper Motor & Photoresistor Execution Code 
       while(cond==True):
