@@ -4,6 +4,12 @@ import cgitb
 import json
 cgitb.enable()
 
+data = cgi.FieldStorage()
+snack = data.getvalue('option')
+data = {"option":snack}
+with open('vending.txt', 'w') as f:
+    json.dump(data,f)
+    
 print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
@@ -22,11 +28,7 @@ print('<body>')
 print('<div style="width:1200px;background:#FFFFFF;border:1px;text-align:left">')
 print('<br>')
 
-data = cgi.FieldStorage()
-snack = data.getvalue('option')
-data = {"option":snack}
-with open('vending.txt', 'w') as f:
-    json.dump(data,f)
+
 
 print('<form action="/cgi-bin/radio.py" method="POST">')
 print('<label>')
