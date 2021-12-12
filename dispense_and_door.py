@@ -52,7 +52,8 @@ def doorOpen(self):
   except KeyboardInterrupt:
     print("bye")
     servo.stop()
-
+photoResVal=myADC.read(0)
+print('the Photoresistor Value is: ', photoResVal)
 GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
 cond=True
