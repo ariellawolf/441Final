@@ -93,3 +93,6 @@ while(True):
   else:
     print(productRead)
     print('product selected is: ', productSelected)
+    with open('/usr/lib/cgi-bin/vending.txt','r') as f:
+      productRead= json.load(f)
+    productSelected= productRead["option"]
