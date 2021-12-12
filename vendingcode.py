@@ -7,9 +7,9 @@ cgitb.enable()
 data = cgi.FieldStorage()
 snack = data.getvalue('option')
 data = {"option":snack}
-with open('vending.txt', 'w') as f:
+with open('/usr/lib/cgi-bin/vending.txt', 'w') as f:
     json.dump(data,f)
-    
+
 print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
