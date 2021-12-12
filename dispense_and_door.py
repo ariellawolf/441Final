@@ -41,6 +41,7 @@ def stepper():
       else:
         cond2=False
         print('above ambient value')
+        break
   except Exception as e:
     print(e)
     
