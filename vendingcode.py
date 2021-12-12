@@ -14,7 +14,7 @@ print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
 print('<title>Online Vending Machine</title>')
-print('<meta http-equiv="refresh" content="30">')  # refresh to update LED state
+print('<meta http-equiv="refresh" content="30">')  # refresh to update LED state 
 print('</head>')
 
 print('<body>')
