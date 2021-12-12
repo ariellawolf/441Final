@@ -73,6 +73,7 @@ cond= True
 while(cond==True):
   photoResVal=myADC.read(0) #0 channel
   PIRreading = GPIO.input(PIRPin)
+  print('pir value is: ', PIRreading)
   time.sleep(.1)
   if (photoResVal< ambientVal):
     print('the first cond is true: ', photoResVal)
