@@ -57,6 +57,8 @@ def doorOpen(self):
     print("bye")
     servo.stop()
     
+GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+
 while True:
   try:
     with open('/usr/lib/cgi-bin/vending.txt','r') as f:
@@ -84,7 +86,7 @@ while True:
           time.sleep(.01)
           cond=False #remove this for repetative turning
           
-      GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+      
 
       #Servo Motor & PIR Sensor Code
       cond3= True
