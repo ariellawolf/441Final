@@ -61,32 +61,32 @@ def doorOpen(self):
 with open('/usr/lib/cgi-bin/vending.txt','r') as f:
   productRead= json.load(f)
   productSelected= productRead["option"]
-  
-if (productSelected=="hersheys"):
-  stepperThread = threading.Thread(target= stepper)
-  stepperThread.daemon= True # force to end when main code terminates
-  photoResVal=myADC.read(0) #0 channel
-  stepperThread.start() #continuously looping through stepper code
-  cond= True
-
-  #Stepper Motor & Photoresistor Execution Code 
-  while(cond==True):
+while(True):  
+  if (productSelected=="hersheys"):
+    stepperThread = threading.Thread(target= stepper)
+    stepperThread.daemon= True # force to end when main code terminates
     photoResVal=myADC.read(0) #0 channel
-    time.sleep(.01)
-    if (photoResVal< ambientVal):
-      print('the first cond is true: ', photoResVal)
-      time.sleep(.01)
-    elif (photoResVal>= ambientVal):
-      print('end motor')
-      time.sleep(.01)
-      cond=False #remove this for repetative turning
-      
-  GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+    stepperThread.start() #continuously looping through stepper code
+    cond= True
 
-  #Servo Motor & PIR Sensor Code
-  while(True):
-    PIRreading = GPIO.input(PIRPin)
-    print('pir value is: ', PIRreading)
-    time.sleep(.01)
-else:
-  print('product selected is: ', productSelected)
+    #Stepper Motor & Photoresistor Execution Code 
+    while(cond==True):
+      photoResVal=myADC.read(0) #0 channel
+      time.sleep(.01)
+      if (photoResVal< ambientVal):
+        print('the first cond is true: ', photoResVal)
+        time.sleep(.01)
+      elif (photoResVal>= ambientVal):
+        print('end motor')
+        time.sleep(.01)
+        cond=False #remove this for repetative turning
+        
+    GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+
+    #Servo Motor & PIR Sensor Code
+    while(True):
+      PIRreading = GPIO.input(PIRPin)
+      print('pir value is: ', PIRreading)
+      time.sleep(.01)
+  else:
+    print('product selected is: ', productSelected)
