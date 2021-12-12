@@ -9,7 +9,7 @@ snack = data.getvalue('option')
 data = {"option":snack}
 with open('/usr/lib/cgi-bin/vending.txt', 'w') as f:
     json.dump(data,f)
-
+    
 print('Content-type:text/html\n\n')
 print('<html>')
 print('<head>')
@@ -30,7 +30,7 @@ print('<br>')
 
 
 
-print('<form action="/cgi-bin/radio.py" method="POST">')
+print('<form action="/cgi-bin/vendingcode.py" method="POST">')
 print('<label>')
 print('<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAtITLRhcF-gW8Rml2NyaK8SWE-wTtO7Opvg&usqp=CAU"width="200"height="100"/>')
 print('<input type="radio" name="option" value="reeces" checked> Reeces - $1.00 <br>')
