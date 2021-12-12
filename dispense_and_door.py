@@ -30,10 +30,11 @@ for pin in stepperPins:
 
 stepperTry= Stepper(180,0)
 myADC= ADC(address)
+cond2=True
 
 def stepper():
   try:
-    cond2=True
+    
     while(cond2==True):
       if (photoResVal< ambientVal):
         cond2=True
