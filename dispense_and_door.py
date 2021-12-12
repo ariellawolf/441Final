@@ -16,7 +16,7 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 
-ambientVal= 80 #change depending on room lighting
+ambientVal= 75 #change depending on room lighting
 address= 0x48 #find device address
 
 
@@ -54,6 +54,7 @@ def doorOpen(self):
     servo.stop()
 
 GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
+cond = True
 
 while True:
   try:
@@ -68,7 +69,7 @@ while True:
       stepperThread.daemon= True # force to end when main code terminates
       photoResVal=myADC.read(0) #0 channel
       stepperThread.start() #continuously looping through stepper code
-      cond= True
+      global cond
 
       #Stepper Motor & Photoresistor Execution Code 
       while(cond==True):
