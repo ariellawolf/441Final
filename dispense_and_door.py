@@ -34,15 +34,9 @@ cond2=True
 
 def stepper():
   try:
+    while(photoResVal< ambientVal):
+      stepperTry.contRotate()
     
-    while(cond2==True):
-      if (photoResVal< ambientVal):
-        cond2=True
-        stepperTry.contRotate()
-      else:
-        cond2=False
-        print('above ambient value')
-        break
   except Exception as e:
     print(e)
     
