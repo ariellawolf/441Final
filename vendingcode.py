@@ -25,7 +25,7 @@ print('<br>')
 data = cgi.FieldStorage()
 snack = data.getvalue('option')
 data = {"option":snack}
-with open('/usr/lib/cgi-bin/vending.txt', 'w') as f:
+with open('vending.txt', 'w') as f:
     json.dump(data,f)
 
 print('<form action="/cgi-bin/radio.py" method="POST">')

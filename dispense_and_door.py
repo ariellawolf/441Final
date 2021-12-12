@@ -58,7 +58,7 @@ def doorOpen(self):
     servo.stop()
     
 
-with open('/usr/lib/cgi-bin/vending.txt','r') as f:
+with open('vending.txt','r') as f:
   productRead= json.load(f)
   productSelected= productRead["option"]
   
