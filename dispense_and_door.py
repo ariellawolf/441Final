@@ -16,7 +16,7 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 
-ambientVal= 100 #change depending on room lighting
+ambientVal= 80 #change depending on room lighting
 address= 0x48 #find device address
 
 
@@ -56,7 +56,7 @@ def doorOpen(self):
   except KeyboardInterrupt:
     print("bye")
     servo.stop()
-    
+
 GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
 while True:
