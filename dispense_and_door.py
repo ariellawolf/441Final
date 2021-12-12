@@ -77,10 +77,10 @@ while(cond==True):
     time.sleep(.01)
     cond=False #remove this for repetative turning
     
+GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
 #Servo Motor & PIR Sensor Code
 while(True):
   PIRreading = GPIO.input(PIRPin)
   print('pir value is: ', PIRreading)
-  GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
   time.sleep(.01)
