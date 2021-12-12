@@ -93,7 +93,7 @@ while (cond4==True):
         time.sleep(.01)
         if (PIRreading==1):
           cond3= False
-          cond4= True
+          cond4= False
       
           
     else:
