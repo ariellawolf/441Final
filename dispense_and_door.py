@@ -36,7 +36,6 @@ def stepper():
     while(cond2==True):
       if (photoResVal< ambientVal):
         cond2=True
-        print('in while loop')
         stepperTry.contRotate()
       else:
         cond2=False
@@ -69,13 +68,13 @@ cond= True
 #Stepper Motor & Photoresistor Execution Code 
 while(cond==True):
   photoResVal=myADC.read(0) #0 channel
-  time.sleep(.1)
+  time.sleep(.01)
   if (photoResVal< ambientVal):
     print('the first cond is true: ', photoResVal)
-    time.sleep(1)
+    time.sleep(.01)
   elif (photoResVal>= ambientVal):
     print('end motor')
-    time.sleep(1)
+    time.sleep(.01)
     cond=False #remove this for repetative turning
     
 
@@ -84,4 +83,4 @@ while(True):
   PIRreading = GPIO.input(PIRPin)
   print('pir value is: ', PIRreading)
   GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
-  time.sleep(1)
+  time.sleep(.01)
