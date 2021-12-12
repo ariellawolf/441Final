@@ -31,6 +31,7 @@ for pin in stepperPins:
 stepperTry= Stepper(180,0)
 myADC= ADC(address)
 cond2=True
+cond3= True
 
 def stepper():
   try:
@@ -83,10 +84,8 @@ while True:
           time.sleep(.01)
           cond=False #remove this for repetative turning
           
-      
-
       #Servo Motor & PIR Sensor Code
-      cond3= True
+      
       while(cond3==True):
         PIRreading = GPIO.input(PIRPin)
         print('pir value is: ', PIRreading)
