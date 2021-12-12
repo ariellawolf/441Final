@@ -93,6 +93,7 @@ while (cond4==True):
         print('pir value is: ', PIRreading)
         time.sleep(.01)
         if (PIRreading==1):
+          time.sleep(50)
           cond3= False
           cond4= False
       
