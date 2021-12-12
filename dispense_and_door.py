@@ -60,7 +60,7 @@ def doorOpen(self):
 
 with open('/usr/lib/cgi-bin/vending.txt','r') as f:
   productRead= json.load(f)
-  productSelected= productRead["s1"]
+  productSelected= productRead["option"]
   
 if (productSelected==hersheys):
   stepperThread = threading.Thread(target= stepper)

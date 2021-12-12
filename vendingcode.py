@@ -1,5 +1,4 @@
 #!/usr/bin/python37all
-import RPi.GPIO as GPIO
 import cgi
 import cgitb
 import json
@@ -24,9 +23,9 @@ print('<div style="width:1200px;background:#FFFFFF;border:1px;text-align:left">'
 print('<br>')
 
 data = cgi.FieldStorage()
-s1 = data.getvalue('option')
-data = {"option":s1}
-with open('vending.txt', 'w') as f:
+snack = data.getvalue('option')
+data = {"option":snack}
+with open('/usr/lib/cgi-bin/vending.txt', 'w') as f:
     json.dump(data,f)
 
 print('<form action="/cgi-bin/radio.py" method="POST">')
@@ -47,7 +46,7 @@ print('</label>')
 
 print('<input type="submit" value="Purchase">')
 
-if s1 == "hersheys" or s1 == "kitkat":
+if snack == "hersheys" or snack == "kitkat":
   print ('<font color="red"> Out of Stock')
 else:
   print ('<font color="black"> In Stock')
