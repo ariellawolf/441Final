@@ -89,4 +89,5 @@ while(True):
       print('pir value is: ', PIRreading)
       time.sleep(.01)
   else:
+    print(productRead)
     print('product selected is: ', productSelected)

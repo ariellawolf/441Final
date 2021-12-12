@@ -49,9 +49,9 @@ print('</label>')
 print('<input type="submit" value="Purchase">')
 
 if snack == "hersheys" or snack == "kitkat":
-  print ('<font color="red">'+ snack + ' is out of stock')
+  print ('<font color="red"> %s is out of stock' % snack)
 else:
-  print ('<font color="red">'+ snack + ' is in stock')
+  print ('<font color="black"> %s is in stock' % snack)
 
 print('</form>')
 print('<br>')
