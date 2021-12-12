@@ -87,10 +87,13 @@ while True:
       GPIO.add_event_detect(PIRPin, GPIO.RISING, callback= doorOpen, bouncetime=100)
 
       #Servo Motor & PIR Sensor Code
-      while(True):
+      cond3= True
+      while(cond3==True):
         PIRreading = GPIO.input(PIRPin)
         print('pir value is: ', PIRreading)
         time.sleep(.01)
+        if (PIRreading==1):
+          cond3= False
     else:
       print(productRead)
       print('product selected is: ', productSelected)
