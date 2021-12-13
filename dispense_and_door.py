@@ -47,7 +47,7 @@ def doorOpen(self):
     print('in try statement')
     servo.ChangeDutyCycle(2)
     time.sleep(.5)   
-    servo.ChangeDutyCycle(5)
+    servo.ChangeDutyCycle(7)
     time.sleep(2)
     servo.ChangeDutyCycle(2)
     time.sleep(.5)  
