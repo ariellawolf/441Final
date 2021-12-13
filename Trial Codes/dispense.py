@@ -31,7 +31,7 @@ def stepper():
         stepperTry.contRotate()
       elif(condition== True):
         print("this second cond is true")
-        for i in range(1200):
+        for i in range(2000):
           stepperTry.contRotate()
         condition= False
       else:
