@@ -16,9 +16,9 @@ servo= GPIO.PWM(servoPin, 50) #50 Hz
 servo.start(dcMin)
 print('in try statement')  
 servo.ChangeDutyCycle(3)
-sleep.delay(.5)
+time.sleep(.5)
 servo.ChangeDutyCycle(7)
-sleep.delay(.5)
+time.sleep(.5)
 servo.ChangeDutyCycle(3)
-sleep.delay(5)
+time.sleep(5)
     
