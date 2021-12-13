@@ -50,7 +50,8 @@ def doorOpen(self):
     servo.ChangeDutyCycle(7)
     time.sleep(2)
     servo.ChangeDutyCycle(3)
-    time.sleep(.5)  
+    time.sleep(.5)
+    servo.stop()  
   except KeyboardInterrupt:
     print("bye")
     servo.stop()
