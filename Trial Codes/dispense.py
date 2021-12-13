@@ -29,10 +29,10 @@ def stepper():
       if(photoResVal< ambientVal):
         print('in while loop')
         stepperTry.contRotate()
-      elif(condition= True):
-        
-        stepperTry.contRotate()
-
+      elif(condition== True):
+        for i in range(600):
+          stepperTry.contRotate()
+        condition= False
       else:
         print('in while loop, not rotating')
         time.sleep(5)
