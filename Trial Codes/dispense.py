@@ -34,6 +34,7 @@ def stepper():
         for j in range(4):
           for i in range(1000):
             stepperTry.contRotate()
+            print(i)
         condition= False
       else:
         print('in while loop, not rotating')
