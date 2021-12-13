@@ -16,7 +16,7 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 
-ambientVal= 15 #change depending on room lighting
+ambientVal= 10 #change depending on room lighting
 address= 0x48 #find device address
 
 
@@ -37,7 +37,7 @@ def stepper():
     condition= True
     while(True):
       if(photoResVal< ambientVal):
-        print('in while loop')
+        print('in while loop, photoVal =', photoResVal)
         stepperTry.contRotate()
       elif(condition== True):
         print("this second cond is true")
