@@ -70,15 +70,25 @@ class Stepper:
     else:
       self.dir= 1 #ccw
 
-  def halfstep(self): #run through different pins to set states
+  def halfstepCCW(self): #run through different pins to set states
     # dir = +/- 1 (ccw/ cw)
-    self.decideDirection()
+    self.dir=1
     self.state = self.state + self.dir
     if self.state > 7: self.state = 0
     elif self.state < 0: self.state = 7
     for pin in range(4):    # 4 pins that need to be energized
         GPIO.output(self.pins[pin], self.sequence[self.state][pin])
     self.delay_us(1000)
+
+  def halfstepCW(self): #run through different pins to set states
+      # dir = +/- 1 (ccw/ cw)
+      self.dir=-1
+      self.state = self.state + self.dir
+      if self.state > 7: self.state = 0
+      elif self.state < 0: self.state = 7
+      for pin in range(4):    # 4 pins that need to be energized
+          GPIO.output(self.pins[pin], self.sequence[self.state][pin])
+      self.delay_us(1000)
 
   def goAngle(self): 
     # move the actuation sequence a given number of half steps
@@ -91,7 +101,13 @@ class Stepper:
   def contRotate(self):
     print('rotating')
     for step in range(8):
-      self.halfstep()
+      self.halfstepCCW()
+
+  def contRotateCW(self):
+    print('rotating')
+    for step in range(8):
+      self.halfstepCW()
+
     
   
 
