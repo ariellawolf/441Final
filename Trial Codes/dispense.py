@@ -7,7 +7,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 photoResistor= 0 #change as needed
-ambientVal= 100 #change depending on room lighting
+ambientVal= 80 #change depending on room lighting
 address= 0x48 #find device address
 
 

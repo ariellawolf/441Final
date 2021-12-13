@@ -4,7 +4,7 @@ from classes import ADC
 
 
 photoResistor= 0 #change as needed
-ambientVal= 105
+ambientVal= 80
 address= 0x48 #find device address
 myADC= ADC(address)
 
