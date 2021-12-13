@@ -10,10 +10,12 @@ for pin in stepperPins:
   GPIO.setup(pin, GPIO.OUT, initial=0)
 
 stepperTry= Stepper(180,0)
-
+rotationNumber=0
 try:
     while(True):
       print('in while loop')
       stepperTry.contRotate()
+      rotationNumber=rotationNumber+1
+      print(rotationNumber)
 except Exception as e:
   print(e)
