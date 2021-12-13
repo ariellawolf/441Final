@@ -30,7 +30,8 @@ def stepper():
         print('in while loop')
         stepperTry.contRotate()
       elif(condition== True):
-        for i in range(600):
+        print("this second cond is true")
+        for i in range(700):
           stepperTry.contRotate()
         condition= False
       else:
