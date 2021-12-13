@@ -16,7 +16,7 @@ dcMax = 12 #this may need to be changed
 servo= GPIO.PWM(servoPin, 50) #50 Hz
 
 
-ambientVal= 220 #change depending on room lighting
+ambientVal= 10 #change depending on room lighting
 address= 0x48 #find device address
 
 
