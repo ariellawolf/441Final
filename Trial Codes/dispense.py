@@ -58,7 +58,7 @@ while(cond==True):
   elif (photoResVal>= ambientVal):
     print('end motor')
     time.sleep(1)
-    cond=False #remove this for repetative turning
+    #cond=False #remove this for repetative turning
 
   
 
