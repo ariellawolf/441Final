@@ -44,10 +44,12 @@ def doorOpen(self):
   print('servo started')
   try:
     servo.start(dcMin)
-    print('in try statement')  
-    servo.ChangeDutyCycle(dcMax)
-    time.sleep(3)
-    servo.ChangeDutyCycle(dcMin)
+    print('in try statement')
+    servo.ChangeDutyCycle(2)
+    time.sleep(.5)   
+    servo.ChangeDutyCycle(5)
+    time.sleep(2)
+    servo.ChangeDutyCycle(2)
     time.sleep(.5)  
   except KeyboardInterrupt:
     print("bye")
