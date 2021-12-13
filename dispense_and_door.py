@@ -62,7 +62,7 @@ def doorOpen(self):
     servo.ChangeDutyCycle(7)
     time.sleep(.5)      
     servo.ChangeDutyCycle(9)
-    time.sleep(10)
+    time.sleep(5)
     servo.ChangeDutyCycle(7)
     time.sleep(.5)   
     servo.ChangeDutyCycle(5)
