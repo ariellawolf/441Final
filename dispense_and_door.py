@@ -34,9 +34,20 @@ myADC= ADC(address)
 
 def stepper():
   try:
-    while(photoResVal< ambientVal):
-      stepperTry.contRotate()
-    
+    condition= True
+    while(True):
+      if(photoResVal< ambientVal):
+        print('in while loop')
+        stepperTry.contRotate()
+      elif(condition== True):
+        print("this second cond is true")
+        for i in range(700):
+          stepperTry.contRotate()
+          print(i)
+        condition= False
+      else:
+        print('in while loop, not rotating')
+        time.sleep(5)
   except Exception as e:
     print(e)
     
